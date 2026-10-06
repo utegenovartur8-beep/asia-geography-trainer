@@ -19,4 +19,9 @@ geo = json.loads((root / 'src/data/asia.geo.json').read_text())
 mapped = {f['properties']['id'] for f in geo['features'] if f['properties']['study']}
 assert mapped == {c['id'] for c in data}
 assert all(f['geometry']['coordinates'] for f in geo['features'])
+svg = json.loads((root / 'src/data/map-svg.json').read_text())
+assert {s['id'] for s in svg['shapes']} == mapped
+assert all(s['d'] for s in svg['shapes'])
+points = json.loads((root / 'src/data/map-points.json').read_text())
+assert set(points) == mapped
 print('OK: PDF hash; 48 countries; 288 source cells; page/row references; 48 selectable map IDs.')

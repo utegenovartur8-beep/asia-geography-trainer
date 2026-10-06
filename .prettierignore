@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.tools/
+.cache/
+tmp/
+playwright-report/
+test-results/
+src/data/asia.geo.json
+src/data/map-svg.json
+src/data/map-points.json
+
+portable/
+Азия.html
